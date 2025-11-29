@@ -1,0 +1,387 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Light Theme Variables */
+:root[data-theme="light"] {
+  --bg-color: #eff1f5;
+  --text-color: #1f1f1f;
+  --card-bg: rgba(255, 248, 240, 0.6);
+  --border-color: rgba(0, 0, 0, 0.05);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(to right, #fdba74, #fb923c);
+  --gradient-secondary: linear-gradient(to right, #5eead4, #22d3ee);
+  --gradient-peach: linear-gradient(to right, #fcd5ce, #ffb4a2);
+  --gradient-purple-yellow: linear-gradient(to right, #c084fc, #fbbf24);
+
+  /* Individual accent colors */
+  --accent-primary-start: #fdba74;
+  --accent-primary-end: #fb923c;
+  --accent-secondary-start: #22d3ee;
+  --accent-secondary-end: #5eead4;
+}
+
+/* Dark Theme Variables */
+:root[data-theme="dark"] {
+  --bg-color: #12141c;
+  --text-color: #e2e6f3;
+  --card-bg: rgba(18, 21, 28, 0.6);
+  --border-color: rgba(255, 255, 255, 0.05);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(to right, #fdba74, #fb923c);
+  --gradient-secondary: linear-gradient(to right, #5eead4, #22d3ee);
+  --gradient-peach: linear-gradient(to right, #fcd5ce, #ffb4a2);
+  --gradient-purple-yellow: linear-gradient(to right, #c084fc, #fbbf24);
+
+  /* Individual accent colors */
+  --accent-primary-start: #fdba74;
+  --accent-primary-end: #fb923c;
+  --accent-secondary-start: #22d3ee;
+  --accent-secondary-end: #5eead4;
+}
+
+/* Default theme (fallback to light) */
+:root {
+  --bg-color: #eff1f5;
+  --text-color: #1f1f1f;
+  --card-bg: rgba(255, 248, 240, 0.6);
+  --border-color: rgba(0, 0, 0, 0.05);
+  --gradient-primary: linear-gradient(to right, #fdba74, #fb923c);
+  --gradient-secondary: linear-gradient(to right, #5eead4, #22d3ee);
+  --gradient-peach: linear-gradient(to right, #fcd5ce, #ffb4a2);
+  --gradient-purple-yellow: linear-gradient(to right, #c084fc, #fbbf24);
+  --accent-primary-start: #fdba74;
+  --accent-primary-end: #fb923c;
+  --accent-secondary-start: #22d3ee;
+  --accent-secondary-end: #5eead4;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ===== HEADER ANIMATIONS ===== */
+
+/* Header slide down animation */
+@keyframes header-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-header-slide-down {
+  animation: header-slide-down 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+}
+
+/* ===== FULLSCREEN MENU ANIMATIONS ===== */
+
+/* Menu backdrop fade in */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+/* Menu item staggered animations */
+@keyframes menu-item-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-menu-item-1 {
+  animation: menu-item-slide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both;
+}
+
+.animate-menu-item-2 {
+  animation: menu-item-slide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+.animate-menu-item-3 {
+  animation: menu-item-slide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+}
+
+.animate-menu-item-4 {
+  animation: menu-item-slide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+}
+
+.animate-menu-item-5 {
+  animation: menu-item-slide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+}
+
+.animate-menu-item-6 {
+  animation: menu-item-slide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+}
+
+/* ===== ENTRANCE ANIMATIONS ===== */
+
+/* Hello script animation - bounces in with rotation */
+@keyframes hello-entrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) translateX(8px) rotate(-12deg) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) translateX(8px) rotate(-12deg) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(8px) rotate(-12deg) scale(1);
+  }
+}
+
+.animate-hello-entrance {
+  animation: hello-entrance 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1.3s both;
+}
+
+/* First name slide up animation */
+@keyframes slide-up-1 {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up-1 {
+  animation: slide-up-1 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s both;
+}
+
+/* Second name slide up animation with slight delay */
+@keyframes slide-up-2 {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up-2 {
+  animation: slide-up-2 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s both;
+}
+
+/* Fade in up for subheading */
+@keyframes fade-in-up-3 {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up-3 {
+  animation: fade-in-up-3 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.7s both;
+}
+
+/* Fade in up for cards */
+@keyframes fade-in-up-4 {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up-4 {
+  animation: fade-in-up-4 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.1s both;
+}
+
+/* ===== HOVER ANIMATIONS ===== */
+
+/* Enhanced hover effects for cards */
+.hover\:scale-105:hover {
+  transform: scale(1.05) translateY(-4px);
+}
+
+/* Custom gradient utilities */
+.gradient-primary {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-secondary {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-peach {
+  background: var(--gradient-peach);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-purple-yellow {
+  background: var(--gradient-purple-yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Backdrop blur support */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3.5rem;
+    line-height: 0.9;
+  }
+
+  /* Adjust animations for mobile */
+  @keyframes slide-up-1 {
+    0% {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up-2 {
+    0% {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 0.9;
+  }
+
+  /* Further adjust animations for small screens */
+  @keyframes slide-up-1 {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up-2 {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Smooth hover effects */
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Focus styles for accessibility */
+button:focus-visible {
+  outline: 2px solid var(--accent-secondary-start);
+  outline-offset: 2px;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-hello-entrance,
+  .animate-slide-up-1,
+  .animate-slide-up-2,
+  .animate-fade-in-up-3,
+  .animate-fade-in-up-4,
+  .animate-header-slide-down,
+  .animate-fade-in,
+  .animate-menu-item-1,
+  .animate-menu-item-2,
+  .animate-menu-item-3,
+  .animate-menu-item-4,
+  .animate-menu-item-5,
+  .animate-menu-item-6 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
